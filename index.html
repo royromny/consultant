@@ -73,6 +73,17 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .hero .year-badge {
+      display: inline-block;
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
     .hero p {
       font-size: 20px;
       color: var(--muted);
@@ -177,6 +188,65 @@
     }
     .cap-item .level span.filled {
       background: var(--accent);
+    }
+
+    /* Timeline */
+    .timeline-section { }
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 2px solid var(--bg);
+    }
+    .timeline-item .period {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .timeline-item h4 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .timeline-item .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .timeline-item .tech-tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: var(--muted);
     }
 
     /* Tech stack */
@@ -311,7 +381,7 @@
       <li><a href="#services">服务</a></li>
       <li><a href="#capabilities">能力</a></li>
       <li><a href="#pricing">价目</a></li>
-      <li><a href="#contact">联系</a></li>
+
     </ul>
   </div>
 </nav>
@@ -319,9 +389,11 @@
 <!-- Hero -->
 <div class="hero">
   <div class="container">
-    <h1>用十年踩过的坑<br>帮你省掉百万学费</h1>
-    <p>区块链底层 · 量化交易 · 小程序生态<br>专注技术顾问，不接外包开发</p>
+    <span class="year-badge">20年软件开发经验</span>
+    <h1>用二十年踩过的坑<br>帮你省掉百万学费</h1>
+    <p>早期单机软件 · 企业管理系统 · 区块链底层<br>专注技术顾问，不接外包开发</p>
     <div class="tags">
+      <span class="tag highlight">企业软件</span>
       <span class="tag highlight">Filecoin 矿池</span>
       <span class="tag highlight">量化交易</span>
       <span class="tag">微信小程序</span>
@@ -472,6 +544,7 @@
     <h2>服务过的行业</h2>
     <p class="subtitle">理解甲方需求，给完整解决方案，不只是写代码</p>
     <div class="client-list">
+      <span class="client-tag">企业软件</span>
       <span class="client-tag">加密货币矿池</span>
       <span class="client-tag">量化交易</span>
       <span class="client-tag">健身服务</span>
@@ -480,6 +553,67 @@
       <span class="client-tag">智慧运动</span>
       <span class="client-tag">餐饮外卖</span>
       <span class="client-tag">企业 SaaS</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Timeline -->
+<section class="timeline-section">
+  <div class="container">
+    <h2>二十年的路</h2>
+    <p class="subtitle">从单机软件到区块链底层，一步一步踩过来</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="period">2004-2014</div>
+        <h4>单机软件时代</h4>
+        <p>用 VB、C、C++、C#(Shop)、Java、ASP 写过无数项目管理软件，做过 CRM、ERP、OA、企业网站</p>
+        <div class="tech-tags">
+          <span class="tech-tag">VB</span>
+          <span class="tech-tag">C / C++</span>
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">ASP</span>
+          <span class="tech-tag">CRM</span>
+          <span class="tech-tag">ERP</span>
+          <span class="tech-tag">OA</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2014-2018</div>
+        <h4>移动端 + 小程序萌芽</h4>
+        <p>进入移动互联网，做过微信小程序、安卓APP，开始接触前后端分离架构</p>
+        <div class="tech-tags">
+          <span class="tech-tag">微信小程序</span>
+          <span class="tech-tag">Android</span>
+          <span class="tech-tag">Kotlin</span>
+          <span class="tech-tag">PHP</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2019-2024</div>
+        <h4>区块链 + 量化</h4>
+        <p>Filecoin 矿池开发、ZK 证明系统、量化交易系统，全栈深耕</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Go</span>
+          <span class="tech-tag">Rust</span>
+          <span class="tech-tag">Filecoin</span>
+          <span class="tech-tag">ZK</span>
+          <span class="tech-tag">Python</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2024-现在</div>
+        <h4>AI 赋能 + 顾问转型</h4>
+        <p>AI 视频生成、OpenClaw 定制、n8n 自动化，专注技术顾问服务</p>
+        <div class="tech-tags">
+          <span class="tech-tag">AI 工作流</span>
+          <span class="tech-tag">n8n</span>
+          <span class="tech-tag">短视频生成</span>
+          <span class="tech-tag">OpenClaw</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -557,34 +691,11 @@
   </div>
 </div>
 
-<!-- Contact -->
-<section id="contact">
-  <div class="container">
-    <h2>联系方式</h2>
-    <p class="subtitle">约时间远程沟通，不接受无预约上门</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
-      <div class="service-card" style="text-align:center">
-        <div class="icon" style="font-size:40px">📧</div>
-        <h3>邮件</h3>
-        <p style="color:var(--accent)">romny@gitee.com</p>
-      </div>
-      <div class="service-card" style="text-align:center">
-        <div class="icon" style="font-size:40px">🐙</div>
-        <h3>Gitee</h3>
-        <p style="color:var(--accent)">gitee.com/romny</p>
-      </div>
-      <div class="service-card" style="text-align:center">
-        <div class="icon" style="font-size:40px">⏰</div>
-        <h3>响应时间</h3>
-        <p style="color:var(--accent)">24小时内</p>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <footer>
   <div class="container">
-    <p>YY · 十年 IT 经验 · 只做顾问不做外包</p>
+    <p>YY · 二十年 IT 经验 · 只做顾问不做外包</p>
   </div>
 </footer>
 
