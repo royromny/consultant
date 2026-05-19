@@ -750,4 +750,763 @@
 </footer>
 
 </body>
+</html>(base) root@test:~/git/consultant#
+(base) root@test:~/git/consultant#
+(base) root@test:~/git/consultant#
+(base) root@test:~/git/consultant#
+(base) root@test:~/git/consultant#
+(base) root@test:~/git/consultant# cat index.html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YY · 技术顾问服务</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --border: #1e1e2e;
+      --text: #e4e4e7;
+      --muted: #71717a;
+      --accent: #f59e0b;
+      --accent2: #3b82f6;
+      --green: #22c55e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,15,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 16px 0;
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero .year-badge {
+      display: inline-block;
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .hero .tags {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .tag.highlight {
+      background: rgba(245,158,11,0.1);
+      border-color: rgba(245,158,11,0.3);
+      color: var(--accent);
+    }
+
+    /* Section */
+    section { padding: 60px 0; }
+    section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    section .subtitle {
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .service-card .icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .service-card .price {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Capabilities */
+    .capabilities { }
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .cap-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .cap-item .cap-icon { font-size: 28px; margin-bottom: 12px; }
+    .cap-item h4 { font-size: 16px; margin-bottom: 6px; }
+    .cap-item p { color: var(--muted); font-size: 13px; }
+    .cap-item .level {
+      margin-top: 12px;
+      display: flex;
+      gap: 3px;
+
+    }
+    .cap-item .level span {
+      width: 100%;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+    .cap-item .level span.filled {
+      background: var(--accent);
+    }
+
+    /* Timeline */
+    .timeline-section { }
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 2px solid var(--bg);
+    }
+    .timeline-item .period {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .timeline-item h4 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .timeline-item .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .timeline-item .tech-tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Tech stack */
+    .tech-section { background: var(--surface); border-radius: 16px; padding: 40px; border: 1px solid var(--border); }
+    .tech-bars { display: grid; gap: 16px; }
+    .tech-bar { }
+    .tech-bar .label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .tech-bar .label span:first-child { color: var(--muted); }
+    .tech-bar .label span:last-child { color: var(--accent); }
+    .tech-bar .bar {
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .tech-bar .bar div {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 4px;
+    }
+
+    /* Pricing */
+    .pricing-table {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .pricing-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 16px;
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+    .pricing-row:last-child { border-bottom: none; }
+    .pricing-row .name { font-weight: 600; }
+    .pricing-row .desc { color: var(--muted); font-size: 14px; }
+    .pricing-row .price {
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.2);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .pricing-row.header {
+      background: var(--surface);
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Clients */
+    .client-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .client-tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 80px 0;
+      background: linear-gradient(180deg, transparent, rgba(245,158,11,0.03) 50%, transparent);
+    }
+    .cta-section h2 { font-size: 36px; margin-bottom: 16px; }
+    .cta-section p { color: var(--muted); margin-bottom: 32px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      text-decoration: none;
+      padding: 14px 36px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(245,158,11,0.3);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    @media (max-width: 640px) {
+      nav ul { display: none; }
+      .hero h1 { font-size: 32px; }
+      .pricing-row { grid-template-columns: 1fr; gap: 8px; }
+      .pricing-row .price { justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">YY · 技术顾问</div>
+    <ul>
+      <li><a href="#services">服务</a></li>
+      <li><a href="#capabilities">能力</a></li>
+      <li><a href="#pricing">价目</a></li>
+      <li><a href="#exchanges">交易所</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="container">
+    <span class="year-badge">20年软件开发经验</span>
+    <h1>用二十年踩过的坑<br>帮你省掉百万学费</h1>
+    <p>早期单机软件 · 企业管理系统 · 区块链底层<br>专注技术顾问，不接外包开发</p>
+    <div class="tags">
+      <span class="tag highlight">企业软件</span>
+      <span class="tag highlight">Filecoin 矿池</span>
+      <span class="tag highlight">量化交易</span>
+      <span class="tag">微信小程序</span>
+      <span class="tag">ZK 证明</span>
+      <span class="tag">系统架构</span>
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <h2>我能帮什么</h2>
+    <p class="subtitle">只卖经验和判断力，不做苦力开发</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">🔍</div>
+        <h3>技术咨询</h3>
+        <p>需求分析、技术选型、方案评审，帮你理清方向再动手</p>
+        <div class="price">500 - 10000 元/次</div>
+      </div>
+      <div class="service-card">
+        <div class="icon">🛡️</div>
+        <h3>外包监理</h3>
+        <p>帮你在外包团队里当技术翻译，监督质量进度，避免被坑</p>
+        <div class="price">项目总价的 5-10%</div>
+      </div>
+      <div class="service-card">
+        <div class="icon">📊</div>
+        <h3>技术尽调</h3>
+        <p>投资或合伙前，帮你评估项目技术是否靠谱、团队能力几何</p>
+        <div class="price">5000 - 20000 元/次</div>
+      </div>
+      <div class="service-card">
+        <div class="icon">📐</div>
+        <h3>架构设计</h3>
+        <p>复杂系统的高层设计，微服务拆分、技术债务评估</p>
+        <div class="price">3000 - 8000 元/次</div>
+      </div>
+      <div class="service-card">
+        <div class="icon">🎯</div>
+        <h3>长期顾问</h3>
+        <p>按月签约，随时可咨询，远程支持，不限次数</p>
+        <div class="price">3000 - 5000 元/月</div>
+      </div>
+      <div class="service-card">
+        <div class="icon">✅</div>
+        <h3>验收评审</h3>
+        <p>交付前最后一道检查，帮你决定这笔钱该不该付</p>
+        <div class="price">2000 - 5000 元/次</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Capabilities -->
+<section id="capabilities" class="capabilities">
+  <div class="container">
+    <h2>我能做什么</h2>
+    <p class="subtitle">十年真实项目，不是网上抄的能力清单</p>
+
+    <div class="cap-grid" style="margin-bottom:48px">
+      <div class="cap-item">
+        <div class="cap-icon">⛏️</div>
+        <h4>Filecoin 矿池开发</h4>
+        <p>矿池协议、证明系统、集群管理、跨语言底层</p>
+        <div class="level">
+          <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">📈</div>
+        <h4>量化交易系统</h4>
+        <p>策略引擎、多交易所对接、套利机器人、监控告警</p>
+        <div class="level">
+          <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">🖥️</div>
+        <h4>微信小程序全栈</h4>
+        <p>小程序+管理后台，已交付多个行业客户</p>
+        <div class="level">
+          <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">🔐</div>
+        <h4>ZK 证明系统</h4>
+        <p>Aleo 证明者/验证者开发，Rust 底层优化</p>
+        <div class="level">
+          <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">🧠</div>
+        <h4>AI 工作流</h4>
+        <p>n8n 自动化、AI 视频生成、OpenClaw 定制</p>
+        <div class="level">
+          <span class="filled"></span><span class="filled"></span><span class="filled"></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">🏗️</div>
+        <h4>系统架构</h4>
+        <p>微服务设计、高并发、集群管理、运维自动化</p>
+        <div class="level">
+          <span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span><span class="filled"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech-section">
+      <h3 style="margin-bottom:24px;font-size:18px;color:var(--muted)">技术栈深度</h3>
+      <div class="tech-bars">
+        <div class="tech-bar">
+          <div class="label"><span>Go</span><span>精通</span></div>
+          <div class="bar"><div style="width:95%"></div></div>
+        </div>
+        <div class="tech-bar">
+          <div class="label"><span>Rust</span><span>熟练</span></div>
+          <div class="bar"><div style="width:80%"></div></div>
+        </div>
+        <div class="tech-bar">
+          <div class="label"><span>Python</span><span>熟练</span></div>
+          <div class="bar"><div style="width:80%"></div></div>
+        </div>
+        <div class="tech-bar">
+          <div class="label"><span>JavaScript</span><span>掌握</span></div>
+          <div class="bar"><div style="width:70%"></div></div>
+        </div>
+        <div class="tech-bar">
+          <div class="label"><span>PHP / Kotlin</span><span>掌握</span></div>
+          <div class="bar"><div style="width:60%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Clients -->
+<section>
+  <div class="container">
+    <h2>服务过的行业</h2>
+    <p class="subtitle">理解甲方需求，给完整解决方案，不只是写代码</p>
+    <div class="client-list">
+      <span class="client-tag">企业软件</span>
+      <span class="client-tag">加密货币矿池</span>
+      <span class="client-tag">量化交易</span>
+      <span class="client-tag">健身服务</span>
+      <span class="client-tag">酒类电商</span>
+      <span class="client-tag">露营旅游</span>
+      <span class="client-tag">智慧运动</span>
+      <span class="client-tag">餐饮外卖</span>
+      <span class="client-tag">企业 SaaS</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Timeline -->
+<section class="timeline-section">
+  <div class="container">
+    <h2>二十年的路</h2>
+    <p class="subtitle">从单机软件到区块链底层，一步一步踩过来</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="period">2000-2014（中间有几年gap）</div>
+        <h4>软件开发的起点</h4>
+        <p>2000年毕业，开始做软件开发。用过 VB、C、C++、C#(Shop)、Java、ASP 做企业管理系统（CRM、ERP、OA、企业网站）。做几年后停了几年，后来又重新捡起来。</p>
+        <div class="tech-tags">
+          <span class="tech-tag">VB</span>
+          <span class="tech-tag">C / C++</span>
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">ASP</span>
+          <span class="tech-tag">CRM</span>
+          <span class="tech-tag">ERP</span>
+          <span class="tech-tag">OA</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2014-2019</div>
+        <h4>移动互联网 + 前后端分离</h4>
+        <p>重新投入开发，做微信小程序、安卓APP，进入前后端分离架构时代</p>
+        <div class="tech-tags">
+          <span class="tech-tag">微信小程序</span>
+          <span class="tech-tag">Android</span>
+          <span class="tech-tag">Kotlin</span>
+          <span class="tech-tag">PHP</span>
+          <span class="tech-tag">前后端分离</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2019-2024</div>
+        <h4>区块链 + 量化</h4>
+        <p>Filecoin 矿池开发、ZK 证明系统、量化交易系统，全栈深耕</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Go</span>
+          <span class="tech-tag">Rust</span>
+          <span class="tech-tag">Filecoin</span>
+          <span class="tech-tag">ZK</span>
+          <span class="tech-tag">Python</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="period">2024-现在</div>
+        <h4>AI 赋能 + 顾问转型</h4>
+        <p>AI 视频生成、OpenClaw 定制、n8n 自动化，专注技术顾问服务</p>
+        <div class="tech-tags">
+          <span class="tech-tag">AI 工作流</span>
+          <span class="tech-tag">n8n</span>
+          <span class="tech-tag">短视频生成</span>
+          <span class="tech-tag">OpenClaw</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Pricing -->
+<section id="pricing">
+  <div class="container">
+    <h2>明码标价</h2>
+    <p class="subtitle">让对方觉得正规，减少尴尬，才好意思收钱</p>
+    <div class="pricing-table">
+      <div class="pricing-row header">
+        <span>服务项目</span>
+        <span>说明</span>
+        <span>参考价</span>
+      </div>
+      <div class="pricing-row">
+        <div><div class="name">需求分析</div></div>
+        <div class="desc">帮你理清想做什么，给出技术路径</div>
+        <div class="price">500-2000元</div>
+      </div>
+      <div class="pricing-row">
+        <div><div class="name">技术选型</div></div>
+        <div class="desc">评估该用什么技术、为什么</div>
+        <div class="price">1000-3000元</div>
+      </div>
+      <div class="pricing-row">
+        <div><div class="name">方案评审</div></div>
+        <div class="desc">帮你审查外包给出的方案靠不靠谱</div>
+        <div class="price">2000-5000元</div>
+      </div>
+      <div class="pricing-row">
+        <div><div class="name">架构设计</div></div>
+        <div class="desc">复杂系统的高层设计</div>
+        <div class="price">3000-8000元</div>
+      </div>
+      <div class="pricing-row">
+        <div><div class="name">外包监理</div></div>
+        <div class="desc">帮你在外包团队里当技术翻译，避免被坑</div>
+        <div class="price">总价5-10%</div>
+      </div>
+      <div class="pricing-row">
+        <div><div class="name">技术尽调</div></div>
+        <div class="desc">投资/合伙前评估技术和团队</div>
+        <div class="price">5000-20000元</div>
+      </div>
+      <div class="pricing-row">
+        <div><div class="name">验收评审</div></div>
+        <div class="desc">交付前最后检查，决定该不该付款</div>
+        <div class="price">2000-5000元</div>
+      </div>
+      <div class="pricing-row">
+        <div><div class="name">月度顾问</div></div>
+        <div class="desc">随时咨询，远程支持，不限次数</div>
+        <div class="price">3000-5000元/月</div>
+      </div>
+      <div class="pricing-row">
+        <div><div class="name">年度顾问</div></div>
+        <div class="desc">包含优先响应 + 季度深度复盘</div>
+        <div class="price">3-5万元/年</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Exchanges -->
+<section id="exchanges">
+  <div class="container">
+    <h2>交易所推荐</h2>
+    <p class="subtitle">我在用的几家平台，供参考</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">🪙</div>
+        <h3>Bitfinex</h3>
+        <p>全球领先的加密货币交易所，新用户注册立享专属福利</p>
+        <a href="https://www.bitfinex.com/sign-up?refcode=l_i91dFou" target="_blank" class="price" style="text-decoration:none">立即注册 →</a>
+      </div>
+      <div class="service-card">
+        <div class="icon">📊</div>
+        <h3>Bitget Wallet</h3>
+        <p>Web3 创新平台，注册即享新人礼包</p>
+        <a href="https://web3.bgw.live/share/11GKuq?inviteCode=0MoaMC" target="_blank" class="price" style="text-decoration:none">立即注册 →</a>
+      </div>
+      <div class="service-card">
+        <div class="icon">⚡</div>
+        <h3>Bitget</h3>
+        <p>限时活动，注册立享新人专属 10,000+ USDT 礼包</p>
+        <a href="https://www.bjxnyj.com/zh-CN/referral/register?clacCode=0MB1AFQY&from=%2Fzh-CN%2Fevents%2Freferral-all-program&source=events&utmSource=PremierInviter" target="_blank" class="price" style="text-decoration:none">立即注册 →</a>
+      </div>
+      <div class="service-card">
+        <div class="icon">🎁</div>
+        <h3>币安</h3>
+        <p>交易更省钱，新人专属优惠</p>
+        <a href="https://www.bsmkweb.cc/register?ref=YYYY1" target="_blank" class="price" style="text-decoration:none">立即注册 →</a>
+      </div>
+      <div class="service-card">
+        <div class="icon">💰</div>
+        <h3>Gate</h3>
+        <p>全球知名的加密资产交易平台，新人福利多多</p>
+        <a href="https://www.gatesite.cc/zh/referral/registry?ref=BAVEBFBW&ref_type=103&page=earnVoucher&utm_cmp=PEYEQdSb" target="_blank" class="price" style="text-decoration:none">立即注册 →</a>
+      </div>
+      <div class="service-card">
+        <div class="icon">🔗</div>
+        <h3>OKX</h3>
+        <p>持续添加优质交易平台</p>
+        <a href="https://www.asdfghjklqw.com/join/13090834" target="_blank" class="price" style="text-decoration:none">了解更多 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="container">
+    <h2>先聊10分钟，不收费</h2>
+    <p>让我了解你的情况，看看能不能帮上忙<br>如果需要认真分析，再谈顾问费</p>
+    <a href="mailto:romnyroy@gmail.com" class="cta-btn">预约咨询</a>
+  </div>
+</div>
+
+
+
+<footer>
+  <div class="container">
+    <p>YY · 二十年 IT 经验 · 只做顾问不做外包</p>
+  </div>
+</footer>
+
+</body>
 </html>
